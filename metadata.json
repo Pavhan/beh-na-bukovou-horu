@@ -1,0 +1,6 @@
+{
+  "name": "Běh na Bukovou horu",
+  "description": "Oficiální web tradičního běhu do vrchu na Bukovou horu z Výprachtic (7 km, +373 m). Propozice, kategorie, harmonogram a výsledky.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

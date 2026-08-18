@@ -22,9 +22,6 @@ export const PrizesRecords: React.FC = () => {
                 <Crown className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-0.5">
-                  Historická maxima trati (7 km / +373 m)
-                </span>
                 <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
                   Oficiální traťové rekordy
                 </h3>
@@ -49,9 +46,11 @@ export const PrizesRecords: React.FC = () => {
                   <h4 className="text-xl sm:text-2xl font-bold text-white font-display mt-0.5">
                     {rec.holder}
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                    {rec.notes}
-                  </p>
+                  {rec.notes && (
+                    <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                      {rec.notes}
+                    </p>
+                  )}
                 </div>
 
                 <div className="text-right shrink-0">

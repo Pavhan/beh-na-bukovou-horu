@@ -1,30 +1,45 @@
 import React, { useState } from 'react';
-import { Image, ExternalLink, Camera, X } from 'lucide-react';
-import { PHOTO_GALLERIES } from '../data/eventData';
+import { Images, Folder, Calendar, ArrowRight } from 'lucide-react';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+import Captions from 'yet-another-react-lightbox/plugins/captions';
+import 'yet-another-react-lightbox/plugins/captions.css';
+import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
+
+import { PHOTO_GALLERIES, GalleryFolder } from '../data/galleries';
 
 export const PhotoGallery: React.FC = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeGallery, setActiveGallery] = useState<GalleryFolder | null>(null);
+  const [photoIndex, setPhotoIndex] = useState<number>(0);
 
-  const showcasePhotos = [
-    {
-      url: 'https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000051-3d2d73d2d9/IMG_2995.JPG?ph=ace6121592',
-      title: 'Horský výběh z Výprachtic',
-      caption: 'Závodníci na lesní svážnici stoupající na Bukovou horu',
-      author: 'Honza Šimůnek'
-    },
-    {
-      url: 'https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000044-5391c5391e/IMG_2986.JPG?ph=ace6121592',
-      title: 'Hřebenová pasáž trati',
-      caption: 'Běžci v plném nasazení na trati 7 km',
-      author: 'J. Šimůnek / Iscarex'
-    },
-    {
-      url: 'https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000034-949c4949c8/IMG_20200808_170709.jpg?ph=ace6121592',
-      title: 'Slavnostní vyhlášení výsledků',
-      caption: 'Předávání cen a pohárů na školním hřišti',
-      author: 'Pořadatelé závodu'
-    }
+  const categories = [
+    { id: 'all', label: 'Všechny galerie' },
+    { id: 'hlavni', label: 'Hlavní závod' },
+    { id: 'deti', label: 'Dětské běhy' },
+    { id: 'trasa', label: 'Trať & Příroda' },
+    { id: 'archiv', label: 'Oficiální archiv' }
   ];
+
+  const filteredGalleries = activeCategory === 'all'
+    ? PHOTO_GALLERIES
+    : PHOTO_GALLERIES.filter((g) => g.category === activeCategory);
+
+  const handleOpenGallery = (gallery: GalleryFolder, initialIndex = 0) => {
+    setActiveGallery(gallery);
+    setPhotoIndex(initialIndex);
+  };
+
+  const slides = activeGallery
+    ? activeGallery.photos.map((photo) => ({
+        src: photo.src,
+        title: photo.title,
+        description: `${photo.description || ''} • ${photo.author || ''}`.trim()
+      }))
+    : [];
 
   return (
     <section id="foto" className="py-14 sm:py-20 bg-[#F8FAF9] border-b border-slate-200/80">
@@ -37,100 +52,119 @@ export const PhotoGallery: React.FC = () => {
           </h2>
         </div>
 
-        {/* Photo Gallery Showcase */}
-        <div>
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-            <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display flex items-center gap-2.5">
-              <Camera className="w-5 h-5 text-emerald-700" />
-              <span>Momentky z trati</span>
-            </h3>
-            <span className="text-xs sm:text-sm text-slate-500">
-              Foto: Honza Šimůnek & Iscarex.cz
-            </span>
-          </div>
+        {/* Category Filters */}
+        <div className="flex flex-wrap items-center gap-2 mb-8">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-emerald-700 text-white shadow-xs'
+                    : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
 
-          {/* 3 Photos Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-            {showcasePhotos.map((photo, idx) => (
+        {/* 10 Galleries Grid (Folder Structure Representation) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredGalleries.map((gallery) => {
+            const photosCount = gallery.photos.length;
+            return (
               <div
-                key={idx}
-                onClick={() => setSelectedPhoto(photo.url)}
-                className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-sm cursor-pointer aspect-4/3 flex flex-col justify-end"
+                key={gallery.id}
+                onClick={() => handleOpenGallery(gallery, 0)}
+                className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-2xs hover:shadow-md hover:border-emerald-500/80 transition-all duration-300 flex flex-col cursor-pointer"
               >
-                <img
-                  src={photo.url}
-                  alt={photo.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
-                
-                <div className="relative z-10 p-5 text-white">
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-1">
-                    Foto: {photo.author}
-                  </span>
-                  <h4 className="text-base sm:text-lg font-bold font-display leading-tight">
-                    {photo.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-200 mt-1 line-clamp-1">
-                    {photo.caption}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+                {/* Thumbnail Cover with Hover Effect & Badges */}
+                <div className="relative aspect-16/10 overflow-hidden bg-slate-900">
+                  <img
+                    src={gallery.coverPhoto}
+                    alt={gallery.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  
+                  {/* Top badges */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold border border-white/10">
+                      <Folder className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{gallery.year}</span>
+                    </span>
 
-          {/* Gallery Links */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {PHOTO_GALLERIES.map((gal) => (
-              <a
-                key={gal.id}
-                href={gal.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500 transition-all flex items-center justify-between group shadow-2xs"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
-                    <Image className="w-5 h-5" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-600/90 text-white text-xs font-bold shadow-xs">
+                      <Images className="w-3.5 h-3.5" />
+                      <span>{photosCount} fotek</span>
+                    </span>
                   </div>
+
+                  {/* Hover Overlay Prompt */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 backdrop-blur-[2px]">
+                    <span className="px-4 py-2 rounded-xl bg-white/95 text-slate-900 font-bold text-xs sm:text-sm shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform flex items-center gap-2">
+                      <Images className="w-4 h-4 text-emerald-600" />
+                      <span>Prohlédnout galerii</span>
+                    </span>
+                  </div>
+
+                  {/* Date in bottom corner */}
+                  {gallery.date && (
+                    <div className="absolute bottom-3 left-3.5 text-white/90 text-xs font-medium flex items-center gap-1.5 drop-shadow-sm">
+                      <Calendar className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{gallery.date}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Content info */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                      {gal.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-500">
-                      Foto: {gal.author}
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-display group-hover:text-emerald-700 transition-colors leading-snug">
+                      {gallery.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 mt-1.5 line-clamp-2 leading-relaxed">
+                      {gallery.description}
                     </p>
                   </div>
+
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-bold text-emerald-700 group-hover:text-emerald-800">
+                    <span>Otevřít celou galerii</span>
+                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-                <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-emerald-700 shrink-0" />
-              </a>
-            ))}
-          </div>
+              </div>
+            );
+          })}
         </div>
 
       </div>
 
-      {/* Lightbox Modal */}
-      {selectedPhoto && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setSelectedPhoto(null)}
-        >
-          <button
-            onClick={() => setSelectedPhoto(null)}
-            className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          <img
-            src={selectedPhoto}
-            alt="Zvětšená fotografie ze závodu"
-            className="max-w-full max-h-[85vh] object-contain rounded-xl shadow-2xl"
-            referrerPolicy="no-referrer"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
+      {/* Lightbox Component with Thumbnails, Captions, Zoom & Fullscreen */}
+      {activeGallery && (
+        <Lightbox
+          open={!!activeGallery}
+          close={() => setActiveGallery(null)}
+          index={photoIndex}
+          slides={slides}
+          plugins={[Captions, Thumbnails, Zoom, Fullscreen]}
+          captions={{
+            showToggle: true,
+            descriptionMaxLines: 3
+          }}
+          thumbnails={{
+            position: 'bottom',
+            width: 100,
+            height: 60,
+            gap: 12
+          }}
+          animation={{ fade: 250, swipe: 250 }}
+        />
       )}
     </section>
   );

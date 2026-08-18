@@ -8,8 +8,8 @@ export const EVENT_DETAILS = {
   dateIso: '2026-08-29T11:00:00+02:00',
   year: '2026',
   dayOfWeek: 'Sobota',
-  locationName: 'Výprachtice – školní hřiště & ZŠ Výprachtice',
-  address: 'Výprachtice č.p. 180, 561 34 Výprachtice',
+  locationName: 'Základní škola a hřiště Výprachtice',
+  address: '',
   gps: {
     lat: 49.9872794,
     lng: 16.6632167,
@@ -301,14 +301,14 @@ export const COURSE_RECORDS: CourseRecord[] = [
     holder: 'Robert Krupička',
     time: '27:05',
     year: '2007',
-    notes: 'Držitel nepřekonaného historického maxima trati'
+    notes: ''
   },
   {
     category: 'Ženský traťový rekord',
     holder: 'Adéla Vetchá',
     time: '32:23',
     year: '2025',
-    notes: 'Nový rekord stanovený v ročníku 2025'
+    notes: ''
   }
 ];
 

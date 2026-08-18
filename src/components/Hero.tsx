@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, ArrowDown, Compass } from 'lucide-react';
+import { Calendar, Clock, Compass } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
 
 interface HeroProps {
@@ -70,15 +70,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
           Běh na <span className="text-emerald-400 block mt-1 sm:mt-2">Bukovou horu</span>
         </h1>
 
-        {/* Natural, clear subtext with unrestricted width */}
-        <p className="mt-5 text-lg sm:text-xl md:text-2xl text-slate-100 w-full font-medium leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-          Tradiční horský běh v Orlických horách. Výběh z Výprachtic (<span className="text-emerald-300 font-bold">585 m</span>) až na vrchol Bukové hory (<span className="text-emerald-300 font-bold">958 m</span>).
-        </p>
+        {/* Natural, clear subtext with each sentence on a new line */}
+        <div className="mt-5 text-lg sm:text-xl md:text-2xl text-slate-100 w-full font-medium leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] space-y-1">
+          <p>Tradiční horský běh v Orlických horách.</p>
+          <p>Výběh z Výprachtic (<span className="text-emerald-300 font-bold">585 m</span>) až na vrchol Bukové hory (<span className="text-emerald-300 font-bold">958 m</span>).</p>
+        </div>
 
-        {/* Unified Date, Time & Big Countdown Card */}
-        <div className="mt-8 w-full max-w-3xl bg-[#091b14]/92 border border-emerald-600/50 rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
-          {/* Top Row: Date & Start Time */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-6 border-b border-emerald-900/80">
+        {/* Date & Start Time Card */}
+        <div className="mt-8 w-full max-w-3xl bg-[#091b14]/92 border border-emerald-600/50 rounded-2xl p-4 sm:p-6 shadow-2xl backdrop-blur-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex items-center gap-4 bg-[#0d261c]/80 border border-emerald-700/50 rounded-xl p-4 sm:p-5 text-left">
               <div className="w-12 h-12 rounded-xl bg-emerald-600/25 border border-emerald-400/40 text-emerald-300 flex items-center justify-center shrink-0">
                 <Calendar className="w-6 h-6" />
@@ -107,59 +107,56 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Bottom: Big Unified Countdown */}
-          <div className="pt-6">
-            <div className="flex items-center justify-between gap-2 mb-4 px-1">
-              <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-400 flex items-center gap-2 bg-amber-400/15 border border-amber-400/40 px-3.5 py-1 rounded-full">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
-                Odpočet do startu
+        {/* Standalone Big Countdown Card */}
+        <div className="mt-4 sm:mt-5 w-full max-w-3xl bg-[#091b14]/92 border border-emerald-600/50 rounded-2xl p-4 sm:p-6 shadow-2xl backdrop-blur-md">
+          <div className="flex items-center justify-center sm:justify-start mb-4 px-1">
+            <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-400 flex items-center gap-2 bg-amber-400/15 border border-amber-400/40 px-3.5 py-1.5 rounded-full">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+              Odpočet do startu hlavního závodu
+            </span>
+          </div>
+
+          <div className="grid grid-cols-4 gap-2.5 sm:gap-4">
+            {/* Days */}
+            <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
+              <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-400 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.35)]">
+                {timeLeft.days}
               </span>
-              <span className="text-xs sm:text-sm text-emerald-200 font-semibold">
-                Dětské běhy od 09:30
+              <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
+                Dní
               </span>
             </div>
 
-            <div className="grid grid-cols-4 gap-2.5 sm:gap-4">
-              {/* Days */}
-              <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
-                <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-400 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.35)]">
-                  {timeLeft.days}
-                </span>
-                <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
-                  Dní
-                </span>
-              </div>
+            {/* Hours */}
+            <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
+              <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-400 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.35)]">
+                {String(timeLeft.hours).padStart(2, '0')}
+              </span>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
+                Hodin
+              </span>
+            </div>
 
-              {/* Hours */}
-              <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
-                <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-400 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.35)]">
-                  {String(timeLeft.hours).padStart(2, '0')}
-                </span>
-                <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
-                  Hodin
-                </span>
-              </div>
+            {/* Minutes */}
+            <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
+              <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-400 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.35)]">
+                {String(timeLeft.minutes).padStart(2, '0')}
+              </span>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
+                Minut
+              </span>
+            </div>
 
-              {/* Minutes */}
-              <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
-                <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-400 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.35)]">
-                  {String(timeLeft.minutes).padStart(2, '0')}
-                </span>
-                <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
-                  Minut
-                </span>
-              </div>
-
-              {/* Seconds */}
-              <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
-                <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-300 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.45)]">
-                  {String(timeLeft.seconds).padStart(2, '0')}
-                </span>
-                <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
-                  Sekund
-                </span>
-              </div>
+            {/* Seconds */}
+            <div className="bg-gradient-to-b from-[#0e2c1e] to-[#04120C] border-2 border-amber-400/50 rounded-xl p-3 sm:p-5 flex flex-col items-center justify-center text-center shadow-lg shadow-black/50">
+              <span className="text-3xl sm:text-5xl lg:text-6xl font-black text-amber-300 font-mono tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(251,191,36,0.45)]">
+                {String(timeLeft.seconds).padStart(2, '0')}
+              </span>
+              <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-200 mt-2">
+                Sekund
+              </span>
             </div>
           </div>
         </div>
@@ -184,16 +181,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
             </span>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <a
-          href="#registrace"
-          id="hero-scroll-indicator"
-          aria-label="Přejít dolů na obsah"
-          className="mt-6 text-emerald-400 hover:text-emerald-300 transition-colors p-1"
-        >
-          <ArrowDown className="w-5 h-5 animate-bounce" />
-        </a>
       </div>
     </section>
   );

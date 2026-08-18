@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPropoziceModal }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
 
-      const sections = ['registrace', 'program', 'trat', 'kategorie', 'ceny', 'deti', 'vysledky', 'foto', 'kontakt'];
+      const sections = ['registrace', 'program', 'trat', 'kategorie', 'ceny', 'deti', 'vysledky', 'foto', 'partneri', 'kontakt'];
       const scrollPos = window.scrollY + 180;
 
       for (const sectionId of sections) {
@@ -45,6 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPropoziceModal }) => {
     { label: 'Děti', href: '#deti', id: 'deti' },
     { label: 'Výsledky', href: '#vysledky', id: 'vysledky' },
     { label: 'Foto', href: '#foto', id: 'foto' },
+    { label: 'Partneři', href: '#partneri', id: 'partneri' },
     { label: 'Kontakt', href: '#kontakt', id: 'kontakt' },
   ];
 

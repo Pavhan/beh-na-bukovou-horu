@@ -98,9 +98,6 @@ export const ContactLocation: React.FC = () => {
               <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">
                 {EVENT_DETAILS.locationName}
               </h3>
-              <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
-                {EVENT_DETAILS.address}
-              </p>
 
               <div className="pt-4 flex items-center justify-between border-t border-emerald-900/60">
                 <div>

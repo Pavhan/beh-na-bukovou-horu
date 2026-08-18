@@ -33,11 +33,8 @@ export const Categories: React.FC = () => {
                 </div>
 
                 <div className="text-right shrink-0">
-                  <span className="text-sm font-mono font-bold text-slate-900 bg-slate-100 px-3 py-1 rounded-md block">
+                  <span className="text-sm font-mono font-bold text-slate-900 bg-slate-100 px-3 py-1.5 rounded-lg block">
                     Start 11:00
-                  </span>
-                  <span className="text-xs text-emerald-700 font-bold block mt-1">
-                    Startovné 200 Kč
                   </span>
                 </div>
               </div>
@@ -104,11 +101,8 @@ export const Categories: React.FC = () => {
                 </div>
 
                 <div className="text-right shrink-0">
-                  <span className="text-sm font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-md block">
+                  <span className="text-sm font-mono font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg block">
                     Starty od 09:30
-                  </span>
-                  <span className="text-xs text-slate-600 font-bold block mt-1">
-                    Startovné 50 Kč
                   </span>
                 </div>
               </div>

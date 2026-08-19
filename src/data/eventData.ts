@@ -2,8 +2,8 @@ import { ScheduleItem, RaceCategory, CourseRecord, Sponsor, GalleryPhoto, Result
 
 export const EVENT_DETAILS = {
   name: 'Běh na Bukovou horu',
-  edition: '33. ročník',
-  editionNumber: 33,
+  edition: '34. ročník',
+  editionNumber: 34,
   dateFormatted: '29. 8. 2026',
   dateIso: '2026-08-29T11:00:00+02:00',
   year: '2026',
@@ -45,21 +45,21 @@ export const SCHEDULE: ScheduleItem[] = [
     time: '08:30 – 09:15',
     title: 'Prezence & registrace dětských kategorií',
     description: 'Registrace na místě v přízemí budovy ZŠ Výprachtice. Vyzvednutí startovního čísla a čipu.',
-    location: 'Budova ZŠ Výprachtice'
+    location: 'Budova ZŠ'
   },
   {
     id: 'reg-main',
     time: '08:30 – 10:45',
     title: 'Prezence & registrace hlavního závodu',
     description: 'Registrace dospělých a juniorských kategorií do 10:45 hod. Zázemí šaten a toalet v budově školy.',
-    location: 'Budova ZŠ Výprachtice'
+    location: 'Budova ZŠ'
   },
   {
     id: 'start-children',
     time: '09:30',
     title: 'Start dětských kategorií',
     description: 'Postupné starty od nejmenších (90 m) po starší žáky (1 600 m) podle věkových kategorií.',
-    location: 'Školní hřiště Výprachtice',
+    location: 'Hřiště ZŠ',
     isHighlight: true
   },
   {
@@ -67,7 +67,7 @@ export const SCHEDULE: ScheduleItem[] = [
     time: '11:00',
     title: 'START HLAVNÍHO ZÁVODU (7 000 m)',
     description: 'Hromadný start hlavního běhu na Bukovou horu. Trať 7 km s převýšením +373 m po lesních a horských cestách.',
-    location: 'Školní hřiště Výprachtice',
+    location: 'Hřiště ZŠ',
     isHighlight: true
   },
   {
@@ -75,14 +75,14 @@ export const SCHEDULE: ScheduleItem[] = [
     time: '11:00',
     title: 'Vyhlášení dětských výsledků & Dětská tombola',
     description: 'Předání medailí, diplomů, věcných cen a dobrot pro všechny malé závodníky. Dětská tombola.',
-    location: 'Areál školního hřiště'
+    location: 'Hřiště ZŠ'
   },
   {
     id: 'awards-main',
     time: '13:30',
     title: 'Vyhlášení výsledků hlavního závodu',
     description: 'Slavnostní dekorování nejlepších běžců a běžkyň ve všech vypsaných věkových kategoriích + předání finančních prémií.',
-    location: 'Areál školního hřiště',
+    location: 'Hřiště ZŠ',
     isHighlight: true
   },
   {
@@ -90,7 +90,7 @@ export const SCHEDULE: ScheduleItem[] = [
     time: '14:00',
     title: 'Velká tombola pro účastníky',
     description: 'Tradiční slosování bohaté tomboly o hodnotné ceny věnované partnery a sponzory závodu.',
-    location: 'Areál školního hřiště'
+    location: 'Hřiště ZŠ'
   }
 ];
 
@@ -499,11 +499,33 @@ export const SPONSORS_DATA: Sponsor[] = [
 
 export const COURSE_PROFILE_POINTS = [
   { km: 0.0, alt: 585, name: 'Start – ZŠ Výprachtice (hřiště)', surface: 'Asfalt / tráva' },
-  { km: 1.0, alt: 615, name: 'Výjezd z obce, náběh do lesa', surface: 'Zpevněná cesta' },
-  { km: 2.0, alt: 660, name: 'Lesní svážnice Na Skalce', surface: 'Lesní cesta' },
-  { km: 3.0, alt: 720, name: 'Úpatí hřebene, stoupání', surface: 'Přírodní stezka' },
-  { km: 4.0, alt: 795, name: 'Střední pasáž stoupání', surface: 'Kamenitá lesní pěšina' },
-  { km: 5.0, alt: 865, name: 'Napojení na hřebenovou cestu', surface: 'Horská cesta' },
-  { km: 6.0, alt: 920, name: 'Závěrečný hřebenový úsek', surface: 'Horský terén' },
+  { km: 0.25, alt: 600, name: 'Začátek stoupání nad školou', surface: 'Asfalt / zpevněná cesta' },
+  { km: 0.5, alt: 604, name: 'Okraj Výprachtic', surface: 'Zpevněná cesta' },
+  { km: 0.75, alt: 610, name: 'Náběh mimo obec', surface: 'Zpevněná cesta' },
+  { km: 1.0, alt: 620, name: 'Výjezd z obce, náběh do lesa', surface: 'Zpevněná cesta' },
+  { km: 1.25, alt: 642, name: 'První souvislé stoupání', surface: 'Lesní cesta' },
+  { km: 1.5, alt: 652, name: 'Lesní úsek pod Skalkou', surface: 'Lesní cesta' },
+  { km: 1.75, alt: 675, name: 'Stoupání lesní svážnicí', surface: 'Lesní cesta' },
+  { km: 2.0, alt: 695, name: 'Lesní svážnice Na Skalce', surface: 'Lesní cesta' },
+  { km: 2.25, alt: 702, name: 'Mírnější pasáž na svážnici', surface: 'Lesní cesta' },
+  { km: 2.5, alt: 704, name: 'Krátké vyrovnání stoupání', surface: 'Lesní cesta' },
+  { km: 2.75, alt: 715, name: 'Nástup na hřebenový svah', surface: 'Přírodní stezka' },
+  { km: 3.0, alt: 735, name: 'Úpatí hřebene, stoupání', surface: 'Přírodní stezka' },
+  { km: 3.2, alt: 730, name: 'Krátká terénní vlna', surface: 'Přírodní stezka' },
+  { km: 3.35, alt: 755, name: 'Výraznější stoupání pod hřebenem', surface: 'Kamenitá lesní pěšina' },
+  { km: 3.5, alt: 775, name: 'Náročnější střední pasáž', surface: 'Kamenitá lesní pěšina' },
+  { km: 3.75, alt: 780, name: 'Mírné srovnání tempa', surface: 'Kamenitá lesní pěšina' },
+  { km: 4.0, alt: 792, name: 'Střední pasáž stoupání', surface: 'Kamenitá lesní pěšina' },
+  { km: 4.25, alt: 812, name: 'Táhlé stoupání k hřebeni', surface: 'Horská cesta' },
+  { km: 4.5, alt: 833, name: 'Lesní hřebenová cesta', surface: 'Horská cesta' },
+  { km: 4.75, alt: 850, name: 'Plynulé hřebenové stoupání', surface: 'Horská cesta' },
+  { km: 5.0, alt: 880, name: 'Napojení na hřebenovou cestu', surface: 'Horská cesta' },
+  { km: 5.25, alt: 900, name: 'Nejvyšší část hřebenové cesty', surface: 'Horský terén' },
+  { km: 5.5, alt: 890, name: 'Krátké zvlnění na hřebeni', surface: 'Horský terén' },
+  { km: 5.75, alt: 880, name: 'Mírný seběh před závěrem', surface: 'Horský terén' },
+  { km: 6.0, alt: 900, name: 'Závěrečný hřebenový úsek', surface: 'Horský terén' },
+  { km: 6.25, alt: 925, name: 'Závěrečné stoupání', surface: 'Horský terén' },
+  { km: 6.5, alt: 940, name: 'Výběh pod vrchol', surface: 'Horský terén' },
+  { km: 6.75, alt: 948, name: 'Poslední metry pod vrcholem', surface: 'Vrcholový úsek' },
   { km: 7.0, alt: 958, name: 'Cíl – Vrchol Bukové hory', surface: 'Vrcholová louka / rozcestí' }
 ];

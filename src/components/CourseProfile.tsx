@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Mountain, Map, TrendingUp, Navigation, ExternalLink, Compass, CheckCircle, Info } from 'lucide-react';
+import { Mountain, Map, TrendingUp, Navigation, ExternalLink, Compass, CheckCircle, Info, X } from 'lucide-react';
 import { EVENT_DETAILS, COURSE_PROFILE_POINTS } from '../data/eventData';
 
 export const CourseProfile: React.FC = () => {
   const [activeKmPoint, setActiveKmPoint] = useState<number | null>(null);
+  const [isOriginalProfileOpen, setIsOriginalProfileOpen] = useState(false);
+  const originalProfileImageUrl = 'https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000006-5860f58612/1%20%282%29.png?ph=ace6121592';
 
   // SVG Altitude profile coordinates with generous top headroom for tooltips
   const minAlt = 540;
@@ -79,14 +81,11 @@ export const CourseProfile: React.FC = () => {
             <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-0.5">
               Výškový profil tratě
             </span>
-            <h3 className="text-lg sm:text-xl font-bold font-display text-white">
-              Stoupání: Výprachtice (585 m) &rarr; Buková hora (958 m)
-            </h3>
           </div>
 
           {/* SVG Profile Chart */}
           <div className="w-full overflow-x-auto">
-            <div className="min-w-[580px] max-w-full">
+            <div className="min-w-[580px] w-full">
               <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto select-none">
                 <defs>
                   <linearGradient id="naturalProfileGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -169,6 +168,7 @@ export const CourseProfile: React.FC = () => {
                   const cx = getX(pt.km);
                   const cy = getY(pt.alt);
                   const isHovered = activeKmPoint === idx;
+                  const isMajorPoint = Number.isInteger(pt.km) || idx === COURSE_PROFILE_POINTS.length - 1;
 
                   return (
                     <g
@@ -182,14 +182,16 @@ export const CourseProfile: React.FC = () => {
                       <circle cx={cx} cy={cy} r={22} fill="transparent" />
 
                       {/* Visible Point Circle */}
-                      <circle
-                        cx={cx}
-                        cy={cy}
-                        r={isHovered ? 7 : 4}
-                        className={`${
-                          isHovered ? 'fill-emerald-300 stroke-white stroke-2' : 'fill-slate-950 stroke-emerald-400 stroke-2'
-                        } transition-all duration-150`}
-                      />
+                      {(isMajorPoint || isHovered) && (
+                        <circle
+                          cx={cx}
+                          cy={cy}
+                          r={isHovered ? 7 : 4}
+                          className={`${
+                            isHovered ? 'fill-emerald-300 stroke-white stroke-2' : 'fill-slate-950 stroke-emerald-400 stroke-2'
+                          } transition-all duration-150`}
+                        />
+                      )}
                     </g>
                   );
                 })}
@@ -296,14 +298,19 @@ export const CourseProfile: React.FC = () => {
               <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">
                 Originální záznam stoupání
               </span>
-              <div className="rounded-xl overflow-hidden bg-white border border-slate-200 p-2">
+              <button
+                type="button"
+                onClick={() => setIsOriginalProfileOpen(true)}
+                className="w-full rounded-xl overflow-hidden bg-white border border-slate-200 p-2 cursor-zoom-in"
+                aria-label="Zobrazit originální záznam stoupání na celou šířku"
+              >
                 <img
-                  src="https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000006-5860f58612/1%20%282%29.png?ph=ace6121592"
+                  src={originalProfileImageUrl}
                   alt="Výškový profil závodu Běh na Bukovou horu"
                   className="w-full h-auto object-contain max-h-48 rounded"
                   referrerPolicy="no-referrer"
                 />
-              </div>
+              </button>
             </div>
 
             {/* ISCAREX Map Link */}
@@ -325,6 +332,32 @@ export const CourseProfile: React.FC = () => {
         </div>
 
       </div>
+
+      {isOriginalProfileOpen && (
+        <div
+          className="fixed inset-0 z-100 bg-slate-950/90 flex items-center justify-center"
+          onClick={() => setIsOriginalProfileOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Originální záznam stoupání"
+        >
+          <button
+            type="button"
+            onClick={() => setIsOriginalProfileOpen(false)}
+            className="absolute top-4 right-4 z-10 rounded-full bg-white/95 p-2 text-slate-900 shadow-lg hover:bg-white"
+            aria-label="Zavřít náhled"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <img
+            src={originalProfileImageUrl}
+            alt="Výškový profil závodu Běh na Bukovou horu"
+            className="w-screen max-h-screen object-contain"
+            referrerPolicy="no-referrer"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 };

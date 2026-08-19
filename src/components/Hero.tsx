@@ -114,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
           <div className="flex items-center justify-center sm:justify-start mb-4 px-1">
             <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-400 flex items-center gap-2 bg-amber-400/15 border border-amber-400/40 px-3.5 py-1.5 rounded-full">
               <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
-              Odpočet do startu hlavního závodu
+              Odpočet do startu
             </span>
           </div>
 

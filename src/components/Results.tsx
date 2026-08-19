@@ -25,34 +25,18 @@ export const Results: React.FC = () => {
             </span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             {RESULTS_ARCHIVE.map((res) => (
               <a
                 key={res.year}
                 href={res.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 hover:border-emerald-500 hover:bg-white hover:shadow-sm transition-all group flex flex-col justify-between"
+                className="min-w-0 p-3 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 hover:border-emerald-500 hover:bg-white hover:shadow-sm transition-all group"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-2xl font-bold font-display text-slate-900 group-hover:text-emerald-700 transition-colors">
-                      {res.year}
-                    </span>
-                    {res.badge && (
-                      <span className="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
-                        {res.badge}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-600 line-clamp-2">
-                    {res.description}
-                  </p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-sm font-bold text-emerald-700">
-                  <span>Výsledky</span>
-                  <ExternalLink className="w-4 h-4" />
+                <div className="flex items-center justify-between gap-2 text-sm sm:text-base font-bold text-emerald-700 whitespace-nowrap">
+                  <span>Výsledky {res.year}</span>
+                  <ExternalLink className="w-4 h-4 shrink-0" />
                 </div>
               </a>
             ))}

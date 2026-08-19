@@ -31,44 +31,44 @@ export const CourseProfile: React.FC = () => {
         </div>
 
         {/* 4 Stats Chips */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-3.5 shadow-2xs">
-            <div className="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
+          <div className="p-2.5 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-2 sm:gap-3.5 shadow-2xs">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
               <Navigation className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-slate-500 block uppercase tracking-wider">Délka</span>
-              <span className="text-xl sm:text-2xl font-black text-slate-900 font-display">7,0 km</span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-500 block uppercase tracking-wider whitespace-nowrap">Délka</span>
+              <span className="text-base sm:text-2xl font-black text-slate-900 font-display whitespace-nowrap">7,0 km</span>
             </div>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-3.5 shadow-2xs">
-            <div className="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <div className="p-2.5 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-2 sm:gap-3.5 shadow-2xs">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
               <TrendingUp className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-slate-500 block uppercase tracking-wider">Převýšení</span>
-              <span className="text-xl sm:text-2xl font-black text-slate-900 font-display">+373 metrů</span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-500 block uppercase tracking-wider whitespace-nowrap">Převýšení</span>
+              <span className="text-base sm:text-2xl font-black text-slate-900 font-display whitespace-nowrap">+373 metrů</span>
             </div>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-3.5 shadow-2xs">
-            <div className="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <div className="p-2.5 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-2 sm:gap-3.5 shadow-2xs">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
               <Mountain className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-slate-500 block uppercase tracking-wider">Start & Cíl</span>
-              <span className="text-sm sm:text-base font-bold text-slate-900 font-display">585 m &rarr; 958 m</span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-500 block uppercase tracking-wider whitespace-nowrap">Start & Cíl</span>
+              <span className="text-[13px] sm:text-base font-bold text-slate-900 font-display whitespace-nowrap">585 m &rarr; 958 m</span>
             </div>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-3.5 shadow-2xs">
-            <div className="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+          <div className="p-2.5 sm:p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-2 sm:gap-3.5 shadow-2xs">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
               <Compass className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-slate-500 block uppercase tracking-wider">Povrch</span>
-              <span className="text-sm sm:text-base font-bold text-slate-900 font-display">Les & horský trail</span>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-500 block uppercase tracking-wider whitespace-nowrap">Povrch</span>
+              <span className="text-xs sm:text-base font-bold text-slate-900 font-display whitespace-nowrap">Les & horský trail</span>
             </div>
           </div>
         </div>

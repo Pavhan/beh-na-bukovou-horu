@@ -45,11 +45,17 @@ export const Schedule: React.FC = () => {
                     <Icon className={`w-4 h-4 ${item.isHighlight ? 'text-emerald-700' : 'text-slate-600'}`} />
                   </div>
 
+                  <div
+                    className={`absolute left-10 top-5 h-0.5 w-4 sm:hidden ${
+                      item.isHighlight ? 'bg-emerald-300' : 'bg-slate-200'
+                    }`}
+                  />
+
                   {/* Spacer for 2-column layout */}
                   <div className="hidden sm:block sm:w-1/2" />
 
                   {/* Card Content */}
-                  <div className="ml-14 sm:ml-0 sm:w-1/2 sm:px-6 w-full">
+                  <div className="ml-14 w-[calc(100%-3.5rem)] sm:ml-0 sm:w-1/2 sm:px-6">
                     <div
                       className={`p-5 sm:p-6 rounded-2xl bg-white border transition-all ${
                         item.isHighlight

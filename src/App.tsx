@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF9F6] text-slate-900 selection:bg-orange-500 selection:text-white">
       {/* Sticky Header Navigation */}
-      <Navbar onOpenPropoziceModal={() => setIsPropoziceModalOpen(true)} />
+      <Navbar />
 
       {/* Main One-Page Content */}
       <main className="flex-1">
@@ -69,4 +69,3 @@ export default function App() {
     </div>
   );
 }
-

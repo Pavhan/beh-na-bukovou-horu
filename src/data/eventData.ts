@@ -104,8 +104,7 @@ export const ADULT_CATEGORIES: RaceCategory[] = [
     birthMin: 2007,
     birthMax: 2010,
     distance: '7 000 m (+373 m)',
-    type: 'junior',
-    description: 'Společná kategorie dorostenců, dorostenek, juniorů a juniorek.'
+    type: 'junior'
   },
   {
     id: 'women-a',

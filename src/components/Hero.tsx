@@ -58,11 +58,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
       <div className="relative z-10 max-w-7xl mx-auto w-full text-center flex flex-col items-center">
         
         {/* Natural Badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#071711]/90 border border-emerald-500/50 text-emerald-300 text-sm sm:text-base font-bold tracking-wide shadow-lg mb-6 backdrop-blur-md">
-          <Compass className="w-4 h-4 text-emerald-400" />
-          <span>{EVENT_DETAILS.edition} běhu do vrchu</span>
+        <div className="inline-flex w-full max-w-[calc(100vw-2rem)] sm:w-auto items-center justify-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-4 py-2 rounded-full bg-[#071711]/90 border border-emerald-500/50 text-emerald-300 text-xs sm:text-base font-bold tracking-wide shadow-lg mb-6 backdrop-blur-md">
+          <Compass className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span className="whitespace-nowrap">{EVENT_DETAILS.edition} běhu do vrchu</span>
           <span className="text-emerald-500">•</span>
-          <span className="text-slate-200">ISCAREX pohár</span>
+          <span className="text-slate-200 whitespace-nowrap">ISCAREX pohár</span>
         </div>
 
         {/* Clean, Strong Display Title without restricted max-width */}

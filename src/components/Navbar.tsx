@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Mountain, Menu, X, ChevronRight, FileText, CheckCircle2 } from 'lucide-react';
-import { EVENT_DETAILS } from '../data/eventData';
+import { Mountain, Menu, X, ChevronRight } from 'lucide-react';
 
-interface NavbarProps {
-  onOpenPropoziceModal: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onOpenPropoziceModal }) => {
+export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
@@ -131,28 +126,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPropoziceModal }) => {
                 <ChevronRight className="w-4 h-4 text-emerald-500/70" />
               </a>
             ))}
-          </div>
-
-          <div className="pt-3 border-t border-emerald-900/50 flex flex-col gap-2">
-            <button
-              id="mobile-btn-propozice"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenPropoziceModal();
-              }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-950/80 text-emerald-100 text-sm font-semibold border border-emerald-800/60"
-            >
-              <FileText className="w-4 h-4 text-emerald-400" />
-              <span>Kompletní souhrn propozic (PDF/Tisk)</span>
-            </button>
-            <a
-              id="mobile-btn-register"
-              href="#registrace"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-600 text-white text-sm font-bold shadow-md shadow-emerald-950/40"
-            >
-              <span>Informace k registraci & startovnému</span>
-            </a>
           </div>
         </div>
       )}

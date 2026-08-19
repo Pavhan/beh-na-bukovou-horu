@@ -40,21 +40,13 @@ export const RegistrationPricing: React.FC = () => {
                 <span className="text-sm font-bold uppercase tracking-wider text-emerald-900 bg-emerald-100/90 px-3 py-1 rounded-md">
                   Hlavní závod (7 km)
                 </span>
-                <span className="text-sm font-medium text-slate-600 font-mono">Dospělí & Dorost</span>
               </div>
 
-              <div className="flex items-baseline gap-2 mb-3">
+              <div className="flex items-baseline gap-2 mb-5">
                 <span className="text-4xl sm:text-5xl font-black text-slate-900 font-display font-mono tracking-tight">
                   200 Kč
                 </span>
-                <span className="text-sm text-slate-500 font-medium">
-                  / platba v hotovosti při prezenci
-                </span>
               </div>
-
-              <p className="text-sm sm:text-base text-slate-600 mb-5">
-                Kompletní závodní servis, převoz věcí na vrchol, měření času a občerstvení.
-              </p>
 
               <div className="space-y-3 pt-4 border-t border-slate-200 text-sm sm:text-base text-slate-700">
                 {adultIncludes.map((item, idx) => (
@@ -79,21 +71,13 @@ export const RegistrationPricing: React.FC = () => {
                 <span className="text-sm font-bold uppercase tracking-wider text-slate-800 bg-slate-200 px-3 py-1 rounded-md">
                   Dětské běhy (90 – 1 600 m)
                 </span>
-                <span className="text-sm font-medium text-slate-600 font-mono">Všechny kategorie</span>
               </div>
 
-              <div className="flex items-baseline gap-2 mb-3">
+              <div className="flex items-baseline gap-2 mb-5">
                 <span className="text-4xl sm:text-5xl font-black text-slate-900 font-display font-mono tracking-tight">
                   50 Kč
                 </span>
-                <span className="text-sm text-slate-500 font-medium">
-                  / symbolický poplatek
-                </span>
               </div>
-
-              <p className="text-sm sm:text-base text-slate-600 mb-5">
-                Zahrnuje medaili pro každého, sladkosti, ceny a skákací hrad na hřišti.
-              </p>
 
               <div className="space-y-3 pt-4 border-t border-slate-200 text-sm sm:text-base text-slate-700">
                 {childIncludes.map((item, idx) => (

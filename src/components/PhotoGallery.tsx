@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Images, Folder, Calendar, ArrowRight } from 'lucide-react';
+import { Images, ArrowRight } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
@@ -12,21 +12,8 @@ import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
 import { PHOTO_GALLERIES, GalleryFolder } from '../data/galleries';
 
 export const PhotoGallery: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
   const [activeGallery, setActiveGallery] = useState<GalleryFolder | null>(null);
   const [photoIndex, setPhotoIndex] = useState<number>(0);
-
-  const categories = [
-    { id: 'all', label: 'Všechny galerie' },
-    { id: 'hlavni', label: 'Hlavní závod' },
-    { id: 'deti', label: 'Dětské běhy' },
-    { id: 'trasa', label: 'Trať & Příroda' },
-    { id: 'archiv', label: 'Oficiální archiv' }
-  ];
-
-  const filteredGalleries = activeCategory === 'all'
-    ? PHOTO_GALLERIES
-    : PHOTO_GALLERIES.filter((g) => g.category === activeCategory);
 
   const handleOpenGallery = (gallery: GalleryFolder, initialIndex = 0) => {
     setActiveGallery(gallery);
@@ -52,29 +39,9 @@ export const PhotoGallery: React.FC = () => {
           </h2>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap items-center gap-2 mb-8">
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                  isActive
-                    ? 'bg-emerald-700 text-white shadow-xs'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-                }`}
-              >
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-
         {/* 10 Galleries Grid (Folder Structure Representation) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredGalleries.map((gallery) => {
+          {PHOTO_GALLERIES.map((gallery) => {
             const photosCount = gallery.photos.length;
             return (
               <div
@@ -92,13 +59,8 @@ export const PhotoGallery: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   
-                  {/* Top badges */}
-                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md text-white text-xs font-bold border border-white/10">
-                      <Folder className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>{gallery.year}</span>
-                    </span>
-
+                  {/* Top badge */}
+                  <div className="absolute top-3.5 right-3.5 flex items-center justify-end pointer-events-none">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-600/90 text-white text-xs font-bold shadow-xs">
                       <Images className="w-3.5 h-3.5" />
                       <span>{photosCount} fotek</span>
@@ -112,14 +74,6 @@ export const PhotoGallery: React.FC = () => {
                       <span>Prohlédnout galerii</span>
                     </span>
                   </div>
-
-                  {/* Date in bottom corner */}
-                  {gallery.date && (
-                    <div className="absolute bottom-3 left-3.5 text-white/90 text-xs font-medium flex items-center gap-1.5 drop-shadow-sm">
-                      <Calendar className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>{gallery.date}</span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Content info */}

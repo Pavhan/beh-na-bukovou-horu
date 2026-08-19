@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Images, ArrowRight } from 'lucide-react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import Captions from 'yet-another-react-lightbox/plugins/captions';
-import 'yet-another-react-lightbox/plugins/captions.css';
 import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
@@ -22,9 +20,7 @@ export const PhotoGallery: React.FC = () => {
 
   const slides = activeGallery
     ? activeGallery.photos.map((photo) => ({
-        src: photo.src,
-        title: photo.title,
-        description: `${photo.description || ''} • ${photo.author || ''}`.trim()
+        src: photo.src
       }))
     : [];
 
@@ -99,18 +95,14 @@ export const PhotoGallery: React.FC = () => {
 
       </div>
 
-      {/* Lightbox Component with Thumbnails, Captions, Zoom & Fullscreen */}
+      {/* Lightbox Component with Thumbnails, Zoom & Fullscreen */}
       {activeGallery && (
         <Lightbox
           open={!!activeGallery}
           close={() => setActiveGallery(null)}
           index={photoIndex}
           slides={slides}
-          plugins={[Captions, Thumbnails, Zoom, Fullscreen]}
-          captions={{
-            showToggle: true,
-            descriptionMaxLines: 3
-          }}
+          plugins={[Thumbnails, Zoom, Fullscreen]}
           thumbnails={{
             position: 'bottom',
             width: 100,

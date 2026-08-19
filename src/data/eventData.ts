@@ -34,7 +34,7 @@ export const EVENT_DETAILS = {
   },
   patronage: 'Akce se koná pod záštitou hejtmana Pardubického kraje a za významné podpory obce Výprachtice.',
   cupAffiliation: 'Závod je zařazen do celoročního seriálu ISCAREX poháru v běhu do vrchu.',
-  mapsUrl: 'http://www.iscarex.cz/propozice/3046/mapa#',
+  mapsUrl: 'https://www.iscarexpohar.cz/propozice/3046/mapa#',
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=49.9872794,16.6632167',
   mapyCzUrl: 'https://mapy.cz/turisticka?x=16.6632167&y=49.9872794&z=16&q=49.9872794N%2C%2016.6632167E'
 };
@@ -336,22 +336,22 @@ export const RESULTS_ARCHIVE: ResultLink[] = [
   },
   {
     year: '2023',
-    url: 'http://iscarex.cz/vysledky/3225',
+    url: 'https://www.iscarexpohar.cz/vysledky/3225',
     description: 'Výsledková listina 31. ročníku (ISCAREX)'
   },
   {
     year: '2022',
-    url: 'http://www.iscarex.cz/vysledky/3180',
+    url: 'https://www.iscarexpohar.cz/vysledky/3180',
     description: 'Výsledková listina 30. jubilejního ročníku'
   },
   {
     year: '2021',
-    url: 'http://iscarex.cz/vysledky/3113',
+    url: 'https://www.iscarexpohar.cz/vysledky/3113',
     description: 'Výsledková listina 29. ročníku'
   },
   {
     year: '2020',
-    url: 'http://www.iscarex.cz/vysledky/3046',
+    url: 'https://www.iscarexpohar.cz/vysledky/3046',
     description: 'Výsledková listina 28. ročníku'
   }
 ];

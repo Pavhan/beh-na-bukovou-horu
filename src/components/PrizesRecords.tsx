@@ -75,7 +75,7 @@ export const PrizesRecords: React.FC = () => {
               <div className="flex items-center gap-2.5 mb-4">
                 <Trophy className="w-5 h-5 text-emerald-700" />
                 <h4 className="font-bold text-slate-900 font-display text-lg sm:text-xl">
-                  Prémie v kategoriích
+                  Prémie v kategoriích hlavního závodu
                 </h4>
               </div>
 

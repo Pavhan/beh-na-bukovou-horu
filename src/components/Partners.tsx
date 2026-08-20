@@ -20,27 +20,31 @@ export const Partners: React.FC = () => {
 
         {/* Patrons & Main Institutions */}
         <div className="mb-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-5 max-w-7xl mx-auto">
             {patronSponsors.map((s, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-4 shadow-2xs"
+                className="p-5 sm:p-6 rounded-2xl bg-[#F8FAF9] border border-slate-200 flex items-center gap-5 shadow-2xs"
               >
                 {s.logoUrl && (
-                  <div className="w-16 h-16 rounded-xl bg-white border border-slate-200 p-2 flex items-center justify-center shrink-0">
+                  <div
+                    className={`h-24 rounded-xl bg-white border border-slate-200 p-3 flex items-center justify-center shrink-0 ${
+                      s.name === 'Pardubický kraj' ? 'w-40 sm:w-48' : 'w-24'
+                    }`}
+                  >
                     <img
                       src={s.logoUrl}
                       alt={s.name}
-                      className="max-w-full max-h-full object-contain"
+                      className="w-full h-full object-contain"
                       referrerPolicy="no-referrer"
                     />
                   </div>
                 )}
-                <div>
-                  <h4 className="font-bold text-slate-900 font-display text-base sm:text-lg">
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-bold text-slate-900 font-display text-xl sm:text-2xl xl:whitespace-nowrap">
                     {s.name}
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+                  <p className="text-base sm:text-lg text-slate-500 mt-1">
                     {s.description}
                   </p>
                 </div>
@@ -51,7 +55,7 @@ export const Partners: React.FC = () => {
 
         {/* Gold & Sport Partners */}
         <div className="mb-10">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 max-w-7xl mx-auto">
             {goldSponsors.map((s, idx) => (
               <div
                 key={idx}
@@ -62,7 +66,7 @@ export const Partners: React.FC = () => {
                     <img
                       src={s.logoUrl}
                       alt={s.name}
-                      className="max-h-12 max-w-[85%] object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                      className="max-h-12 max-w-[85%] object-contain"
                       referrerPolicy="no-referrer"
                     />
                   ) : (
@@ -71,9 +75,6 @@ export const Partners: React.FC = () => {
                 </div>
                 <span className="text-sm font-bold text-slate-900 font-display">
                   {s.name}
-                </span>
-                <span className="text-xs text-slate-400 mt-0.5">
-                  {s.description}
                 </span>
               </div>
             ))}
@@ -96,7 +97,7 @@ export const Partners: React.FC = () => {
                   <img
                     src={s.logoUrl}
                     alt={s.name}
-                    className="max-h-12 max-w-[90%] object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
+                    className="max-h-12 max-w-[90%] object-contain"
                     referrerPolicy="no-referrer"
                   />
                 ) : (

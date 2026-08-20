@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Compass } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
+import heroImage from '../../assets/images/hero-trail-runners.png';
 
 interface HeroProps {
   onOpenPropoziceModal: () => void;
@@ -45,10 +46,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
       {/* Mountain Trail Runner Atmosphere - Enhanced Visibility */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000051-3d2d73d2d9/IMG_2995.JPG?ph=ace6121592"
+          src={heroImage}
           alt="Běh na Bukovou horu – závodníci v horském terénu"
           className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-110 saturate-105"
-          referrerPolicy="no-referrer"
         />
         {/* Soft, protective gradient overlay to keep text ultra-readable while displaying the vivid runners & mountain scenery */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#07130F] via-[#07130F]/45 to-[#07130F]/65" />
@@ -106,6 +106,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
                 </span>
               </div>
             </div>
+
+            <div className="sm:col-span-2 flex items-center justify-center gap-3 bg-[#0b2118]/65 border border-emerald-700/35 rounded-xl px-4 py-3 text-center">
+              <Clock className="w-5 h-5 text-emerald-300/80 shrink-0" />
+              <span className="text-sm sm:text-base font-bold text-slate-200">
+                Dětské závody od <span className="font-mono text-emerald-300">{EVENT_DETAILS.childrenStart}</span>
+              </span>
+            </div>
           </div>
         </div>
 
@@ -114,7 +121,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
           <div className="flex items-center justify-center sm:justify-start mb-4 px-1">
             <span className="text-xs sm:text-sm font-black uppercase tracking-widest text-amber-400 flex items-center gap-2 bg-amber-400/15 border border-amber-400/40 px-3.5 py-1.5 rounded-full">
               <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
-              Odpočet do startu
+              Odpočet do startu hlavního závodu
             </span>
           </div>
 

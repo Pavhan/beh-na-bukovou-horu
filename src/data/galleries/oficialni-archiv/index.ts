@@ -144,7 +144,7 @@ export const galleryOficialniArchiv: GalleryFolder = {
       id: 'webnode-14',
       src: 'https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000019-7e5bc7e5bf/img_1592.jpg?ph=ace6121592',
       thumb: 'https://ace6121592.cbaul-cdnwnd.com/d840186d11449bd887cb2e81ec02d0b8/200000019-7e5bc7e5bf/450/img_1592.jpg?ph=ace6121592',
-      title: 'Vyhlašování dětských kategorií',
+      title: 'Vyhlašování dětských závodů',
       description: 'Odměny pro malé šampiony na pódiu',
       author: 'Zdroj: beh-na-bukovou-horu.webnode.cz',
       width: 1920,

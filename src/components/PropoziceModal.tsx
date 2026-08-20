@@ -21,7 +21,7 @@ export const PropoziceModal: React.FC<PropoziceModalProps> = ({ isOpen, onClose 
 Datum: ${EVENT_DETAILS.dateFormatted} (Start hlavního závodu: ${EVENT_DETAILS.mainStart}, Děti: ${EVENT_DETAILS.childrenStart})
 Místo: ${EVENT_DETAILS.locationName} (${EVENT_DETAILS.gps.formatted})
 Trať: 7,0 km, převýšení +373 m, lesní a horské cesty (Start 585 m n. m., Cíl 958 m n. m.)
-Startovné: 200 Kč hlavní závod / 50 Kč dětské kategorie (platba na místě při prezenci)
+Startovné: 200 Kč hlavní závod / 50 Kč dětské závody (platba na místě při prezenci)
 Prezence: Děti do 09:15, dospělí do 10:45 v budově ZŠ Výprachtice.
 Ceny: 300 - 200 - 100 Kč pro první 3 v každé kategorii, rekord trati 2 000 Kč.
 Rekordy: Robert Krupička 27:05 (2007) / Adéla Vetchá 32:23 (2025).

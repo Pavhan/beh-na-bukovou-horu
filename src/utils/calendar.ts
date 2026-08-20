@@ -13,7 +13,7 @@ export function downloadCalendarEvent() {
     'DTSTART:20260829T090000',
     'DTEND:20260829T150000',
     `SUMMARY:${EVENT_DETAILS.edition} ${EVENT_DETAILS.name}`,
-    `DESCRIPTION:Tradiční závod v běhu do vrchu na trati dlouhé 7 km s převýšením +373 m z Výprachtic na Bukovou horu. Dětské starty od 9:30, hlavní závod v 11:00. Více na https://beh-na-bukovou-horu.webnode.cz/`,
+    `DESCRIPTION:Tradiční závod v běhu do vrchu na trati dlouhé 7 km s převýšením +373 m z Výprachtic na Bukovou horu. Dětské závody od 9:30, hlavní závod v 11:00. Více na https://beh-na-bukovou-horu.webnode.cz/`,
     `LOCATION:${EVENT_DETAILS.locationName}, ${EVENT_DETAILS.address}`,
     'STATUS:CONFIRMED',
     'END:VEVENT',

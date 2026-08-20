@@ -43,7 +43,7 @@ export const SCHEDULE: ScheduleItem[] = [
   {
     id: 'reg-children',
     time: '08:30 – 09:15',
-    title: 'Prezence & registrace dětských kategorií',
+    title: 'Prezence & registrace dětských závodů',
     description: 'Registrace na místě v přízemí budovy ZŠ Výprachtice. Vyzvednutí startovního čísla a čipu.',
     location: 'Budova ZŠ'
   },
@@ -57,8 +57,8 @@ export const SCHEDULE: ScheduleItem[] = [
   {
     id: 'start-children',
     time: '09:30',
-    title: 'Start dětských kategorií',
-    description: 'Postupné starty od nejmenších (90 m) po starší žáky (1 600 m) podle věkových kategorií.',
+    title: 'Start dětských závodů',
+    description: 'Postupné starty od nejmenších (90 m) po starší žáky (1 600 m).',
     location: 'Hřiště ZŠ',
     isHighlight: true
   },
@@ -73,7 +73,7 @@ export const SCHEDULE: ScheduleItem[] = [
   {
     id: 'awards-children',
     time: '11:00',
-    title: 'Vyhlášení dětských výsledků & Dětská tombola',
+    title: 'Vyhlášení dětských závodů & dětská tombola',
     description: 'Předání medailí, diplomů, věcných cen a dobrot pro všechny malé závodníky. Dětská tombola.',
     location: 'Hřiště ZŠ'
   },
@@ -368,7 +368,7 @@ export const PHOTO_GALLERIES = [
   },
   {
     id: 'gal-2022-kids',
-    title: 'Dětské kategorie 2022',
+    title: 'Dětské závody 2022',
     author: 'J. Šimůnek (Iscarex)',
     year: '2022',
     url: 'http://www.iscarex.cz/fotogalerie/100000680',

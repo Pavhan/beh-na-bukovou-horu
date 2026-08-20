@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Compass } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
-import heroImage from '../../assets/images/hero-trail-runners.png';
+import heroImage from '../../assets/images/hero-trail-runners.webp';
 
 interface HeroProps {
   onOpenPropoziceModal: () => void;
@@ -49,6 +49,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPropoziceModal }) => {
           src={heroImage}
           alt="Běh na Bukovou horu – závodníci v horském terénu"
           className="w-full h-full object-cover object-center filter brightness-[0.72] contrast-110 saturate-105"
+          loading="eager"
+          fetchPriority="high"
         />
         {/* Soft, protective gradient overlay to keep text ultra-readable while displaying the vivid runners & mountain scenery */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#07130F] via-[#07130F]/45 to-[#07130F]/65" />

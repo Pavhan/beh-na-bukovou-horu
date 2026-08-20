@@ -35,7 +35,7 @@ export const ChildrenSection: React.FC = () => {
               Dětská tombola v 11:00
             </h4>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Každé startovní číslo dětského běhu je zároveň slosovatelným lístkem do bohaté dětské tomboly s věcnými cenami.
+              Každé startovní číslo dětského závodu je zároveň slosovatelným lístkem do bohaté dětské tomboly s věcnými cenami.
             </p>
           </div>
 

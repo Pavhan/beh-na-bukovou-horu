@@ -69,7 +69,7 @@ export const RegistrationPricing: React.FC = () => {
             <div>
               <div className="flex items-center justify-between gap-2 mb-4">
                 <span className="text-sm font-bold uppercase tracking-wider text-slate-800 bg-slate-200 px-3 py-1 rounded-md">
-                  Dětské běhy (90 – 1 600 m)
+                  Dětské závody (90 – 1 600 m)
                 </span>
               </div>
 

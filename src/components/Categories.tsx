@@ -193,7 +193,7 @@ export const Categories: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Dětské kategorie (90 m – 1 600 m) */}
+          {/* Right Column: Kategorie dětských závodů (90 m – 1 600 m) */}
           <div className="bg-white border border-slate-200 rounded-2xl p-3 sm:p-7 shadow-sm">
             <div>
               <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-200">
@@ -203,7 +203,7 @@ export const Categories: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-bold text-slate-900 font-display text-sm sm:text-xl leading-tight whitespace-nowrap">
-                      Dětské kategorie
+                      Kategorie dětských závodů
                     </h3>
                   </div>
                 </div>
